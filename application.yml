@@ -1,1 +1,16 @@
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+eureka:
+  instance:
+    healthCheckUrlPath: /actuator/health
+    statusPageUrlPath: /actuator/info
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: '10'
+  client:
+    register-with-client: 'true'
+    fetch-registry: 'true'
+    service-url:
+      defaultZone: http://localhost:8082/eureka/
